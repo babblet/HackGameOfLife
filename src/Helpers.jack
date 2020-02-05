@@ -1,0 +1,10 @@
+class Helpers {
+    function boolean and(boolean a, boolean b) {
+        if (a) {
+            if (b) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

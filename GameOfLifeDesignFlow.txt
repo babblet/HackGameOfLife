@@ -1,0 +1,16 @@
+Create a field (GameField.create())
+
+
+Edit the field (Editor.open(GameField))
+    have buttons that controlls the editing
+        arrows move cursor
+        enter switches field area to dead or alive
+    ask user if he is done editting
+
+Play the game using field (Play.using(GameField))
+    have stats next to screen.
+        Starting alive:
+        Current alive: 
+        Current cyckle:
+
+    When user presses 'e' key it will restart to editor using the modified field

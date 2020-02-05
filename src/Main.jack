@@ -1,0 +1,10 @@
+class Main {
+	function void main() {
+		do GameOfLife.run();
+		while(true){
+			do Output.moveCursor(0,0);
+			do Output.printInt(9);
+		}
+		return;
+	}
+}

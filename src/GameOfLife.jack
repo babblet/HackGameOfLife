@@ -1,0 +1,15 @@
+class GameOfLife {
+    function void run() {
+        var GameField gameField;
+        let gameField = GameField.new(30, 30);
+
+        while (~Controller.quit()) {
+            do Editor.edit(gameField);
+            do Player.play(gameField);
+        }
+        
+        do gameField.show();
+        do gameField.dispose();
+        return;
+    }
+}

@@ -1,0 +1,9 @@
+class Editor {
+    function void edit(GameField gameField) {
+        do gameField.set(true, 10, 10);
+        do gameField.set(true, 11, 10);
+        do gameField.set(true, 12, 10);
+        do gameField.show();
+        return;
+    }
+}

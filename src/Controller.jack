@@ -1,0 +1,9 @@
+class Controller {
+    function boolean quit() { // Q
+        return (Keyboard.keyPressed() = 81);
+    }
+
+    function boolean step() { // A
+        return (Keyboard.keyPressed() = 65);
+    }
+}

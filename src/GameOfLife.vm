@@ -1,0 +1,26 @@
+function GameOfLife.run 1
+push constant 30
+push constant 30
+call GameField.new 2
+pop local 0
+label WHILE_EXP0
+call Controller.quit 0
+not
+not
+if-goto WHILE_END0
+push local 0
+call Editor.edit 1
+pop temp 0
+push local 0
+call Player.play 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push local 0
+call GameField.show 1
+pop temp 0
+push local 0
+call GameField.dispose 1
+pop temp 0
+push constant 0
+return

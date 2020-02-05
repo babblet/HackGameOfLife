@@ -1,0 +1,30 @@
+class Player {
+    function void play(GameField gameField) {
+        var GameField oldGameField;
+        var int x, y;
+        var int maxWidth, maxHeight;
+        let maxWidth = gameField.getWidth();
+        let maxHeight = gameField.getWidth();
+
+        while(~Controller.quit()){
+            while(~Controller.step()){}
+
+            let oldGameField = gameField;//GameField.copy(gameField);
+            let y = 0;
+            while(y < maxHeight) {
+                let x = 0;
+                while(x < maxWidth) {
+                    if (GameRules.cellIsAlive(oldGameField, x, y)) {
+                        do gameField.set(true, x, y);
+                    } else {
+                        do gameField.set(false, x, y);
+                    }
+                    let x = x + 1;
+                }
+                let y = y + 1;
+            }
+            do gameField.show();
+        }
+        return;
+    }
+}

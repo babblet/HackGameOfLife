@@ -1,0 +1,90 @@
+// This should probably just be a two dimensional array containing booleans
+// Then we will create a graphical api that will be able to display the field properly.
+
+class GameField {
+    field int height, width;
+    field Array data;
+    constructor GameField new(int _width, int _height) {
+        var int x;
+        let height = _height;
+        let width = _width;
+        let data = Array.new(_height * _width);
+        
+        let x = 0;
+        while( x < (_height * _width)) {
+            let data[x] = 0;
+            let x = x + 1;
+        }
+        return this;
+    }
+
+    constructor GameField copy(GameField gameField) {
+        var int x;
+        var int y;
+
+        let height = gameField.getHeight();
+        let width = gameField.getWidth();
+        let data = Array.new(height * width);
+        
+        let y = 0;
+        while (y < height) {
+            let x = 0;
+            while (x < width) {
+                let data[(y * (width - 1)) + x] = gameField.isAliveAt(x, y);
+                let x = x + 1;
+            }
+            let y = y + 1;
+        }
+        return this;
+    }
+
+    method int getHeight() {
+        return height;
+    }
+
+    method int getWidth() {
+        return width;
+    }
+
+    method void set(boolean alive, int x, int y) {
+        var int position;
+        if(Helpers.and((x < width), (y < height))) {
+            let position = (y * (width - 1)) + x;
+            let data[position] = alive;
+        }
+        return;
+    }
+
+    method boolean isAliveAt(int x, int y) {
+        var int position;
+        if(Helpers.and((x < width), (y < height))) {
+            let position = (y * (width - 1)) + x;
+            return data[position];
+        } else {
+            return false;
+        }
+    } 
+
+    method void show() {
+        var int x;
+        var int y;
+        let x = 0;
+        let y = 0;
+        do Output.moveCursor(0,0);
+        while(y < height) {
+            while(x < width) {
+                do Output.printInt(data[(y * (width - 1)) + x]);
+                let x = x + 1;
+            }
+            do Output.println();
+            let x = 0;
+            let y = y + 1;
+        }
+        return;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

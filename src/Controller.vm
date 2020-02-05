@@ -1,0 +1,10 @@
+function Controller.quit 0
+call Keyboard.keyPressed 0
+push constant 81
+eq
+return
+function Controller.step 0
+call Keyboard.keyPressed 0
+push constant 65
+eq
+return
