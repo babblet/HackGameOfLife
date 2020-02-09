@@ -7,7 +7,7 @@ class Player {
         let maxHeight = gameField.getWidth();
 
         while(~Controller.quit()){
-            while(~Controller.step()){}
+            //while(~Controller.step()){}
             let oldGameField = GameField.copy(gameField);
             let y = 0;
             while(y < maxHeight) {
@@ -23,7 +23,6 @@ class Player {
                 let y = y + 1;
             }
             do oldGameField.dispose();
-            do gameField.show();
         }
         return;
     }

@@ -1,16 +1,20 @@
 function GameField.new 1
-push constant 3
+push constant 5
 call Memory.alloc 1
 pop pointer 0
 push argument 1
 pop this 0
 push argument 0
 pop this 1
+call Sprites.aliveCell 0
+pop this 2
+call Sprites.deadCell 0
+pop this 3
 push argument 1
 push argument 0
 call Math.multiply 2
 call Array.new 1
-pop this 2
+pop this 4
 push constant 0
 pop local 0
 label WHILE_EXP0
@@ -22,7 +26,7 @@ lt
 not
 if-goto WHILE_END0
 push local 0
-push this 2
+push this 4
 add
 push constant 0
 pop temp 0
@@ -38,7 +42,7 @@ label WHILE_END0
 push pointer 0
 return
 function GameField.copy 2
-push constant 3
+push constant 5
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -51,7 +55,7 @@ push this 0
 push this 1
 call Math.multiply 2
 call Array.new 1
-pop this 2
+pop this 4
 push constant 0
 pop local 1
 label WHILE_EXP0
@@ -70,12 +74,10 @@ not
 if-goto WHILE_END1
 push local 1
 push this 1
-push constant 1
-sub
 call Math.multiply 2
 push local 0
 add
-push this 2
+push this 4
 add
 push argument 0
 push local 0
@@ -134,20 +136,47 @@ goto IF_FALSE0
 label IF_TRUE0
 push argument 3
 push this 1
-push constant 1
-sub
 call Math.multiply 2
 push argument 2
 add
 pop local 0
 push local 0
-push this 2
+push this 4
 add
 push argument 1
 pop temp 0
 pop pointer 1
 push temp 0
 pop that 0
+push argument 1
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push constant 6
+push constant 6
+push argument 2
+push constant 6
+call Math.multiply 2
+push argument 3
+push constant 6
+call Math.multiply 2
+call Drawer.draw 5
+pop temp 0
+goto IF_END1
+label IF_FALSE1
+push this 3
+push constant 6
+push constant 6
+push argument 2
+push constant 6
+call Math.multiply 2
+push argument 3
+push constant 6
+call Math.multiply 2
+call Drawer.draw 5
+pop temp 0
+label IF_END1
 label IF_FALSE0
 push constant 0
 return
@@ -176,14 +205,12 @@ goto IF_FALSE0
 label IF_TRUE0
 push argument 2
 push this 1
-push constant 1
-sub
 call Math.multiply 2
 push argument 1
 add
 pop local 0
 push local 0
-push this 2
+push this 4
 add
 pop pointer 1
 push that 0
@@ -193,23 +220,19 @@ label IF_FALSE0
 push constant 0
 return
 label IF_END0
-function GameField.show 2
+function GameField.reDraw 2
 push argument 0
 pop pointer 0
 push constant 0
-pop local 0
-push constant 0
 pop local 1
-push constant 0
-push constant 0
-call Output.moveCursor 2
-pop temp 0
 label WHILE_EXP0
 push local 1
 push this 0
 lt
 not
 if-goto WHILE_END0
+push constant 0
+pop local 0
 label WHILE_EXP1
 push local 0
 push this 1
@@ -218,27 +241,47 @@ not
 if-goto WHILE_END1
 push local 1
 push this 1
-push constant 1
-sub
 call Math.multiply 2
 push local 0
 add
-push this 2
+push this 4
 add
 pop pointer 1
 push that 0
-call Output.printInt 1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 2
+push constant 6
+push constant 6
+push local 0
+push constant 6
+call Math.multiply 2
+push local 1
+push constant 6
+call Math.multiply 2
+call Drawer.draw 5
 pop temp 0
+goto IF_END0
+label IF_FALSE0
+push this 3
+push constant 6
+push constant 6
+push local 0
+push constant 6
+call Math.multiply 2
+push local 1
+push constant 6
+call Math.multiply 2
+call Drawer.draw 5
+pop temp 0
+label IF_END0
 push local 0
 push constant 1
 add
 pop local 0
 goto WHILE_EXP1
 label WHILE_END1
-call Output.println 0
-pop temp 0
-push constant 0
-pop local 0
 push local 1
 push constant 1
 add
@@ -250,7 +293,7 @@ return
 function GameField.dispose 0
 push argument 0
 pop pointer 0
-push this 2
+push this 4
 call Array.dispose 1
 pop temp 0
 push pointer 0

@@ -17,7 +17,7 @@ pop temp 0
 goto WHILE_EXP0
 label WHILE_END0
 push local 0
-call GameField.show 1
+call GameField.reDraw 1
 pop temp 0
 push local 0
 call GameField.dispose 1

@@ -7,4 +7,9 @@ class Helpers {
         }
         return false;
     }
+    function boolean or(booelan a, boolean b) {
+        if (a) {return true;}
+        if (b) {return true;}
+        return false;
+    }
 }

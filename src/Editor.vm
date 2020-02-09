@@ -21,7 +21,28 @@ push constant 10
 call GameField.set 4
 pop temp 0
 push argument 0
-call GameField.show 1
+push constant 0
+not
+push constant 10
+push constant 14
+call GameField.set 4
+pop temp 0
+push argument 0
+push constant 0
+not
+push constant 11
+push constant 14
+call GameField.set 4
+pop temp 0
+push argument 0
+push constant 0
+not
+push constant 12
+push constant 14
+call GameField.set 4
+pop temp 0
+push argument 0
+call GameField.reDraw 1
 pop temp 0
 push constant 0
 return

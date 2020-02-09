@@ -3,11 +3,15 @@
 
 class GameField {
     field int height, width;
+    field Array aliveCellSprite;
+    field Array deadCellSprite;
     field Array data;
     constructor GameField new(int _width, int _height) {
         var int x;
         let height = _height;
         let width = _width;
+        let aliveCellSprite = Sprites.aliveCell();
+        let deadCellSprite = Sprites.deadCell();
         let data = Array.new(_height * _width);
         
         let x = 0;
@@ -30,7 +34,7 @@ class GameField {
         while (y < height) {
             let x = 0;
             while (x < width) {
-                let data[(y * (width - 1)) + x] = gameField.isAliveAt(x, y);
+                let data[(y * width) + x] = gameField.isAliveAt(x, y);
                 let x = x + 1;
             }
             let y = y + 1;
@@ -52,8 +56,13 @@ class GameField {
             Helpers.and((x < width), x > -1),
             Helpers.and((y < height), y > -1))
         ) {
-            let position = (y * (width - 1)) + x;
+            let position = (y * width) + x;
             let data[position] = alive;
+            if(alive) {
+                do Drawer.draw(aliveCellSprite, 6, 6, x * 6, y * 6);
+            } else {
+                do Drawer.draw(deadCellSprite, 6, 6, x * 6, y * 6);
+            }
         }
         return;
     }
@@ -64,26 +73,32 @@ class GameField {
             Helpers.and((x < width), x > -1),
             Helpers.and((y < height), y > -1))
         ) {
-            let position = (y * (width - 1)) + x;
+            let position = (y * width) + x;
             return data[position];
         } else {
             return false;
         }
     } 
 
-    method void show() {
+    //Do not redraw this all the time,
+    //It is not needed.
+    //Draw everytime with set instead.
+    method void reDraw() {
         var int x;
         var int y;
-        let x = 0;
+
+        //do Screen.clearScreen();
         let y = 0;
-        do Output.moveCursor(0,0);
         while(y < height) {
+            let x = 0;
             while(x < width) {
-                do Output.printInt(data[(y * (width - 1)) + x]);
+                if(data[(y * width) + x]) {
+                    do Drawer.draw(aliveCellSprite, 6, 6, x * 6, y * 6);
+                } else {
+                    do Drawer.draw(deadCellSprite, 6, 6, x * 6, y * 6);
+                }
                 let x = x + 1;
             }
-            do Output.println();
-            let x = 0;
             let y = y + 1;
         }
         return;

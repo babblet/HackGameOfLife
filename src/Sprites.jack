@@ -1,0 +1,39 @@
+class Sprites {
+    function Array aliveCell() {
+        var Array data;
+        var int position;
+
+        let data = Array.new(6 * 6);
+
+        let position = 0;
+        while(position < (6 * 6)) {
+            let data[position] = true;
+            let position = position + 1;
+        }
+        return data;
+    }
+    function Array deadCell() {
+        var Array data;
+        var int x;
+        var int y;
+        var int position;
+
+        let data = Array.new(6 * 6);
+
+        let y = 0;
+        while(y < 6) {
+            let x = 0;
+            while(x < 6) {
+                let position = ((y * 6) + x);
+                if (Helpers.or(x = 5, y = 5)) {
+                    let data[position] = true; 
+                } else {
+                    let data[position] = false;
+                }
+                let x = x + 1;
+            }
+            let y = y + 1;
+        }
+        return data;
+    }
+}

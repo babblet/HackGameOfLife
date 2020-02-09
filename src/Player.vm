@@ -10,32 +10,25 @@ call Controller.quit 0
 not
 not
 if-goto WHILE_END0
-label WHILE_EXP1
-call Controller.step 0
-not
-not
-if-goto WHILE_END1
-goto WHILE_EXP1
-label WHILE_END1
 push argument 0
 call GameField.copy 1
 pop local 0
 push constant 0
 pop local 2
-label WHILE_EXP2
+label WHILE_EXP1
 push local 2
 push local 4
 lt
 not
-if-goto WHILE_END2
+if-goto WHILE_END1
 push constant 0
 pop local 1
-label WHILE_EXP3
+label WHILE_EXP2
 push local 1
 push local 3
 lt
 not
-if-goto WHILE_END3
+if-goto WHILE_END2
 push local 0
 push local 1
 push local 2
@@ -63,19 +56,16 @@ push local 1
 push constant 1
 add
 pop local 1
-goto WHILE_EXP3
-label WHILE_END3
+goto WHILE_EXP2
+label WHILE_END2
 push local 2
 push constant 1
 add
 pop local 2
-goto WHILE_EXP2
-label WHILE_END2
+goto WHILE_EXP1
+label WHILE_END1
 push local 0
 call GameField.dispose 1
-pop temp 0
-push argument 0
-call GameField.show 1
 pop temp 0
 goto WHILE_EXP0
 label WHILE_END0

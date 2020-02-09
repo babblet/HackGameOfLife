@@ -3,7 +3,11 @@ class Editor {
         do gameField.set(true, 10, 10);
         do gameField.set(true, 11, 10);
         do gameField.set(true, 12, 10);
-        do gameField.show();
+        do gameField.set(true, 10, 14);
+        do gameField.set(true, 11, 14);
+        do gameField.set(true, 12, 14);
+        do gameField.reDraw();
+        //do gameField.dispose();
         return;
     }
 }

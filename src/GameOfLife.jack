@@ -8,7 +8,7 @@ class GameOfLife {
             do Player.play(gameField);
         }
         
-        do gameField.show();
+        do gameField.reDraw();
         do gameField.dispose();
         return;
     }
