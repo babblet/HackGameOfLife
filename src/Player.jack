@@ -8,8 +8,7 @@ class Player {
 
         while(~Controller.quit()){
             while(~Controller.step()){}
-
-            let oldGameField = gameField;//GameField.copy(gameField);
+            let oldGameField = GameField.copy(gameField);
             let y = 0;
             while(y < maxHeight) {
                 let x = 0;
@@ -23,6 +22,7 @@ class Player {
                 }
                 let y = y + 1;
             }
+            do oldGameField.dispose();
             do gameField.show();
         }
         return;

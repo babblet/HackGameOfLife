@@ -97,5 +97,8 @@ not
 return
 label IF_FALSE4
 label IF_END2
+push argument 0
+call GameField.dispose 1
+pop temp 0
 push constant 0
 return

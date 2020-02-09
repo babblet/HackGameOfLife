@@ -115,9 +115,19 @@ pop pointer 0
 push argument 2
 push this 1
 lt
+push argument 2
+push constant 1
+neg
+gt
+call Helpers.and 2
 push argument 3
 push this 0
 lt
+push argument 3
+push constant 1
+neg
+gt
+call Helpers.and 2
 call Helpers.and 2
 if-goto IF_TRUE0
 goto IF_FALSE0
@@ -147,9 +157,19 @@ pop pointer 0
 push argument 1
 push this 1
 lt
+push argument 1
+push constant 1
+neg
+gt
+call Helpers.and 2
 push argument 2
 push this 0
 lt
+push argument 2
+push constant 1
+neg
+gt
+call Helpers.and 2
 call Helpers.and 2
 if-goto IF_TRUE0
 goto IF_FALSE0
@@ -230,6 +250,9 @@ return
 function GameField.dispose 0
 push argument 0
 pop pointer 0
+push this 2
+call Array.dispose 1
+pop temp 0
 push pointer 0
 call Memory.deAlloc 1
 pop temp 0

@@ -48,7 +48,10 @@ class GameField {
 
     method void set(boolean alive, int x, int y) {
         var int position;
-        if(Helpers.and((x < width), (y < height))) {
+        if(Helpers.and(
+            Helpers.and((x < width), x > -1),
+            Helpers.and((y < height), y > -1))
+        ) {
             let position = (y * (width - 1)) + x;
             let data[position] = alive;
         }
@@ -57,7 +60,10 @@ class GameField {
 
     method boolean isAliveAt(int x, int y) {
         var int position;
-        if(Helpers.and((x < width), (y < height))) {
+        if(Helpers.and(
+            Helpers.and((x < width), x > -1),
+            Helpers.and((y < height), y > -1))
+        ) {
             let position = (y * (width - 1)) + x;
             return data[position];
         } else {
@@ -84,6 +90,7 @@ class GameField {
     }
 
     method void dispose() {
+        do data.dispose();
         do Memory.deAlloc(this);
         return;
     }

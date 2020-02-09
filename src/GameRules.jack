@@ -34,7 +34,7 @@ class GameRules {
                 return true;
             }
         }
-
+        do gameField.dispose();
         return false;
     }
 }

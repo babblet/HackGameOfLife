@@ -18,6 +18,7 @@ if-goto WHILE_END1
 goto WHILE_EXP1
 label WHILE_END1
 push argument 0
+call GameField.copy 1
 pop local 0
 push constant 0
 pop local 2
@@ -70,6 +71,9 @@ add
 pop local 2
 goto WHILE_EXP2
 label WHILE_END2
+push local 0
+call GameField.dispose 1
+pop temp 0
 push argument 0
 call GameField.show 1
 pop temp 0
