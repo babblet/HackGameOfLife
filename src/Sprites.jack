@@ -12,6 +12,7 @@ class Sprites {
         }
         return data;
     }
+
     function Array deadCell() {
         var Array data;
         var int x;
@@ -35,5 +36,17 @@ class Sprites {
             let y = y + 1;
         }
         return data;
+    }
+
+    class editorCursor() {
+        var Array data;
+        let data[(0 * 6) + 0];
+        let data[(1 * 6) + 1];
+        let data[(2 * 6) + 2];
+        let data[(3 * 6) + 3];
+        let data[(4 * 6) + 4];
+        let data[(5 * 6) + 5];
+        
+        
     }
 }

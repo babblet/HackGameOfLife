@@ -80,9 +80,6 @@ class GameField {
         }
     } 
 
-    //Do not redraw this all the time,
-    //It is not needed.
-    //Draw everytime with set instead.
     method void reDraw() {
         var int x;
         var int y;
