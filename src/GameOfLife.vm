@@ -14,6 +14,9 @@ pop temp 0
 push local 0
 call Player.play 1
 pop temp 0
+push constant 500
+call Sys.wait 1
+pop temp 0
 goto WHILE_EXP0
 label WHILE_END0
 push local 0

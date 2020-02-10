@@ -3,10 +3,10 @@ class Sprites {
         var Array data;
         var int position;
 
-        let data = Array.new(6 * 6);
+        let data = Array.new(36);
 
         let position = 0;
-        while(position < (6 * 6)) {
+        while(position < (36)) {
             let data[position] = true;
             let position = position + 1;
         }
@@ -19,7 +19,7 @@ class Sprites {
         var int y;
         var int position;
 
-        let data = Array.new(6 * 6);
+        let data = Array.new(36);
 
         let y = 0;
         while(y < 6) {
@@ -38,15 +38,29 @@ class Sprites {
         return data;
     }
 
-    class editorCursor() {
+    function Array editorCursor() {
         var Array data;
-        let data[(0 * 6) + 0];
-        let data[(1 * 6) + 1];
-        let data[(2 * 6) + 2];
-        let data[(3 * 6) + 3];
-        let data[(4 * 6) + 4];
-        let data[(5 * 6) + 5];
-        
-        
+        let data = Array.new(36);
+        let data[0] = true;
+        let data[4] = true;
+        let data[5] = true;
+        let data[7] = true;
+        let data[9] = true;
+        let data[11] = true;
+        let data[14] = true;
+        let data[17] = true;
+        let data[19] = true;
+        let data[21] = true;
+        let data[23] = true;
+        let data[24] = true;
+        let data[28] = true;
+        let data[29] = true;
+        let data[30] = true;
+        let data[31] = true;
+        let data[32] = true;
+        let data[33] = true;
+        let data[34] = true;
+        let data[35] = true;
+        return data;
     }
 }

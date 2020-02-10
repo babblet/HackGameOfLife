@@ -4,11 +4,25 @@ push argument 3
 add
 push constant 512
 lt
+push argument 1
+push argument 3
+add
+push constant 1
+neg
+gt
+call Helpers.and 2
 push argument 2
 push argument 4
 add
 push constant 256
 lt
+push argument 2
+push argument 4
+add
+push constant 1
+neg
+gt
+call Helpers.and 2
 call Helpers.and 2
 if-goto IF_TRUE0
 goto IF_FALSE0

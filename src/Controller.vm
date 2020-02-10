@@ -5,6 +5,26 @@ eq
 return
 function Controller.step 0
 call Keyboard.keyPressed 0
+push constant 69
+eq
+return
+function Controller.left 0
+call Keyboard.keyPressed 0
 push constant 65
+eq
+return
+function Controller.right 0
+call Keyboard.keyPressed 0
+push constant 68
+eq
+return
+function Controller.up 0
+call Keyboard.keyPressed 0
+push constant 87
+eq
+return
+function Controller.down 0
+call Keyboard.keyPressed 0
+push constant 83
 eq
 return

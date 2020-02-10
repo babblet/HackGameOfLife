@@ -3,7 +3,23 @@ class Controller {
         return (Keyboard.keyPressed() = 81);
     }
 
-    function boolean step() { // A
+    function boolean step() { // E
+        return (Keyboard.keyPressed() = 69);
+    }
+
+    function boolean left() { // A
         return (Keyboard.keyPressed() = 65);
+    }
+
+    function boolean right() { // D
+        return (Keyboard.keyPressed() = 68);
+    }
+
+    function boolean up() { // W
+        return (Keyboard.keyPressed() = 87);
+    }
+
+    function boolean down() { // S
+        return (Keyboard.keyPressed() = 83);
     }
 }

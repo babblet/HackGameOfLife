@@ -5,7 +5,16 @@ class Drawer {
         var int y;
         var int address;
 
-        if (Helpers.and((width + posX) < 512, (height + posY) < 256)) {
+        if (Helpers.and(
+            Helpers.and(
+                (width  + posX) < 512,
+                (width  + posX) > -1
+            ),
+            Helpers.and(
+                (height + posY) < 256,
+                (height + posY) > -1
+            )
+        )) {
             let y = 0;
             while(y < height) {
                 let x = 0;

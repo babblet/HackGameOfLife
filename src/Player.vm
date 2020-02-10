@@ -5,6 +5,9 @@ pop local 3
 push argument 0
 call GameField.getWidth 1
 pop local 4
+push argument 0
+call GameField.reDraw 1
+pop temp 0
 label WHILE_EXP0
 call Controller.quit 0
 not

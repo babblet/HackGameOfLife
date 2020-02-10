@@ -6,6 +6,7 @@ class GameOfLife {
         while (~Controller.quit()) {
             do Editor.edit(gameField);
             do Player.play(gameField);
+            do Sys.wait(500);
         }
         
         do gameField.reDraw();
