@@ -3,7 +3,11 @@ class Controller {
         return (Keyboard.keyPressed() = 81);
     }
 
-    function boolean step() { // E
+    function boolean mode() { // R
+        return (Keyboard.keyPressed() = 82);
+    }
+
+    function boolean switch() { // E
         return (Keyboard.keyPressed() = 69);
     }
 

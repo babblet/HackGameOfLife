@@ -1,15 +1,31 @@
 class GameOfLife {
     function void run() {
+        var int textOffset;
         var GameField gameField;
+
+        let textOffset = 23;
         let gameField = GameField.new(30, 30);
 
-        while (~Controller.quit()) {
-            do Editor.edit(gameField);
-            do Player.play(gameField);
-            do Sys.wait(500);
-        }
+        do Output.moveCursor(0, textOffset);
+        do Output.printString("---------- Instructions ----------");
+        do Output.moveCursor(1, textOffset);
+        do Output.printString("|                                |");
+        do Output.moveCursor(2, textOffset);
+        do Output.printString("| wasd     : move cursor         |");
+        do Output.moveCursor(3, textOffset);
+        do Output.printString("| e        : enable/disable cell |");
+        do Output.moveCursor(4, textOffset);
+        do Output.printString("| r        : run game            |");
+        do Output.moveCursor(5, textOffset);
+        do Output.printString("| q (hold) : quit game           |");
+        do Output.moveCursor(6, textOffset);
+        do Output.printString("|                                |");
+        do Output.moveCursor(7, textOffset);
+        do Output.printString("----------------------------------");
+
+        do Editor.edit(gameField);
+        do Player.play(gameField);
         
-        do gameField.reDraw();
         do gameField.dispose();
         return;
     }

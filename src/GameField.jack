@@ -84,7 +84,6 @@ class GameField {
         var int x;
         var int y;
 
-        do Screen.clearScreen();
         let y = 0;
         while(y < height) {
             let x = 0;

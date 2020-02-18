@@ -3,7 +3,12 @@ call Keyboard.keyPressed 0
 push constant 81
 eq
 return
-function Controller.step 0
+function Controller.mode 0
+call Keyboard.keyPressed 0
+push constant 82
+eq
+return
+function Controller.switch 0
 call Keyboard.keyPressed 0
 push constant 69
 eq
