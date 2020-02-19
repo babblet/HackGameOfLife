@@ -1,6 +1,3 @@
-// This should probably just be a two dimensional array containing booleans
-// Then we will create a graphical api that will be able to display the field properly.
-
 class GameField {
     field int height, width;
     field Array aliveCellSprite;
